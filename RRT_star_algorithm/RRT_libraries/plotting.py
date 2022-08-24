@@ -26,7 +26,7 @@ class Plotting:
         self.plot_visited_connect(V1, V2)
         self.plot_path(path)
     def plot_grid(self, name):
-        fig, ax = plt.subplot()
+        fig, ax = plt.subplots()
         
         for (ox, oy, w, h) in self.obs_bound:
             ax.add_patch(
