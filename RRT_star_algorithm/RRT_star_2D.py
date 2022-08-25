@@ -13,7 +13,7 @@ import env
 import plotting
 import utils
 import queue
-from  RRT import Node
+from  node import Node
 
 class RRTStar:
     def __init__(self, x_start, x_goal, step_len, goal_sample_rate, search_radius, iter_max):
