@@ -7,8 +7,8 @@ import math
 import numpy as np
 import cv2
 
-sys.path.insert(0, '/home/leanhchien/Navigation_algorithm/RRT_star_algorithm/RRT_libraries')
-sys.path.insert(0, 'D:/Navigation_algorithm/RRT_star_algorithm/RRT_libraries')
+sys.path.insert(0, '/home/leanhchien/Navigation_algorithm/RRT_star_algorithm/RRT_libraries') # path directory in ubuntu
+sys.path.insert(0, 'D:/Navigation_algorithm/RRT_star_algorithm/RRT_libraries')#path directory in windows
 import env
 import plotting
 import utils
