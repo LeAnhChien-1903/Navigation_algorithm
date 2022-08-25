@@ -56,9 +56,9 @@ class GenerateMap:
         fig.add_axes(ax)
         plt.savefig(self.imagePath, dpi = 100)
         fig.show()
-        plt.pause(100)
     def updateWorld(self, order_new = 1):
         self.order = order_new
+        self.imagePath = "D:/Navigation_algorithm/RRT_star_algorithm/RRT_map/world{}_{}_{}_{}_{}.png".format(self.order,self.xI[0], self.xI[1], self.xG[0], self.xI[1])
         for i in range(len(self.obs_circle)):
             radiusCircle = randint(1, 5)
             x_radius = randint(radiusCircle + 2 , self.env.x_range[1] - radiusCircle - 2)
@@ -67,8 +67,8 @@ class GenerateMap:
         for i in range(len(self.obs_rectangle)):
             height = randint(1, 10)
             width = randint(1, 10)
-            x = randint(width + 2 , self.env.x_range[1] - width - 2)
-            y = randint(height + 2 , self.env.y_range[1] - height - 2)
+            x = randint(height + 2 , self.env.x_range[1] - height - 2)
+            y = randint(width + 2 , self.env.y_range[1] - width - 2)
             self.obs_rectangle[i] = [x, y, height, width]
 
     def generateImage(self):
@@ -101,11 +101,10 @@ class GenerateMap:
         cv2.imwrite(self.imagePath, image)
 
 def main():
-    x_start = (18, 8)  # Starting node
-    x_goal = (37, 18)  # Goal node
+    x_start = (8, 8)  # Starting node
+    x_goal = (40, 18)  # Goal node
     map = GenerateMap(x_start, x_goal,1)
-    # map.updateWorld()
-    # print(map.obs_circle)
+    map.updateWorld(order_new=3)
     map.plot_grid()
     map.generateImage()
 
