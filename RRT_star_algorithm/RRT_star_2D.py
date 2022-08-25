@@ -1,6 +1,7 @@
 """
     RRT_star_2D
 """
+import imp
 import os
 import sys
 import math
@@ -8,12 +9,13 @@ import numpy as np
 import cv2
 
 sys.path.insert(0, '/home/leanhchien/Navigation_algorithm/RRT_star_algorithm/RRT_libraries') # path directory in ubuntu
-sys.path.insert(0, 'D:/Navigation_algorithm/RRT_star_algorithm/RRT_libraries')#path directory in windows
+sys.path.insert(0, 'D:/Navigation_algorithm/RRT_star_algorithm/RRT_libraries') # path directory in windows
 import env
 import plotting
 import utils
 import queue
-from  node import Node
+from node import Node
+from cost import Cost
 
 class RRTStar:
     def __init__(self, x_start, x_goal, step_len, goal_sample_rate, search_radius, iter_max):
@@ -168,8 +170,10 @@ def main():
     x_start = (18, 8)  # Starting node
     x_goal = (37, 18)  # Goal node
 
-    rrt_star = RRTStar(x_start, x_goal, 10, 0.10, 20, 10000)
+    rrt_star = RRTStar(x_start, x_goal, 10, 0.10, 20, 1000)
+    cost_obj = Cost()
     rrt_star.planning()
+    print(cost_obj.getCostOfPath(rrt_star.path))
 
 
 if __name__ == '__main__':

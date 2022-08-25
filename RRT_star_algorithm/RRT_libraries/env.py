@@ -8,13 +8,12 @@ class Env:
         self.obs_boundary = self.obs_boundary()
         self.obs_circle = self.obs_circle()
         self.obs_rectangle = self.obs_rectangle()
-    @staticmethod
-    def obs_boundary():
+    def obs_boundary(self):
         obs_boundary = [
             [0, 0, 1, 30],
             [0, 30, 50, 1],
             [1, 0, 50, 1],
-            [50, 1, 1, 30],
+            [50, 1, 1, 30]
         ]
         return obs_boundary
     @staticmethod

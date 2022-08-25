@@ -8,7 +8,7 @@ import sys
 
 sys.path.insert(0, 'RRT_libraries')
 import env
-from RRT import Node
+from node import Node
 
 class Utils:
     def __init__(self):
