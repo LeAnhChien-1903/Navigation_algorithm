@@ -1,4 +1,4 @@
-import cv2  # python-opencv
+import cv2  
 import numpy as np
 
 width, height = 800, 600
