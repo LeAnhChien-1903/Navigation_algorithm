@@ -1,8 +1,7 @@
 """
     RRT_star_2D
 """
-import imp
-import os
+
 import sys
 import math
 import numpy as np
@@ -170,9 +169,10 @@ def main():
     x_start = (18, 8)  # Starting node
     x_goal = (37, 18)  # Goal node
 
-    rrt_star = RRTStar(x_start, x_goal, 10, 0.10, 20, 1000)
+    rrt_star = RRTStar(x_start, x_goal, 10, 0.10, 20, 10000)
     cost_obj = Cost()
     rrt_star.planning()
+    print(rrt_star.path)
     print(cost_obj.getCostOfPath(rrt_star.path))
 
 
