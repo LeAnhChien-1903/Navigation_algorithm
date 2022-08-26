@@ -1,14 +1,11 @@
-from os import stat
 import sys
 from turtle import width
 import cv2
-import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from random import randint, random
 sys.path.insert(0, '/home/leanhchien/Navigation_algorithm/RRT_star_algorithm/RRT_libraries') # path directory in ubuntu
 sys.path.insert(0, 'D:/Navigation_algorithm/RRT_star_algorithm/RRT_libraries') # path directory in windows
-import plotting
 import env
 
 class GenerateMap:
@@ -104,7 +101,7 @@ def main():
     x_start = (8, 8)  # Starting node
     x_goal = (40, 18)  # Goal node
     map = GenerateMap(x_start, x_goal,1)
-    map.updateWorld(order_new=3)
+    #map.updateWorld(order_new=1)
     map.plot_grid()
     map.generateImage()
 
