@@ -1,11 +1,13 @@
-import cv2  
+import sys
+sys.path.insert(0, '/home/leanhchien/Navigation_algorithm/RRT_star_algorithm/RRT_libraries') # path directory in ubuntu
+sys.path.insert(0, 'D:/Navigation_algorithm/RRT_star_algorithm/RRT_libraries') # path directory in windows
+import cv2
+from cost import Cost
+from node import Node
+import plottingVer2
 import numpy as np
 
-imagePath = "D:/Navigation_algorithm/RRT_star_algorithm/RRT_map/world1_8_8_40_8.png"
-image = cv2.imread(imagePath)
-grayImage = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
-(thresh, binaryImage) = cv2.threshold(grayImage, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-cv2.imshow("Origin", image)
-cv2.imshow("Gray", grayImage)
-cv2.imshow("Binary", binaryImage)
-cv2.waitKey()
+a = np.arange(0, 10, 0.1)
+y = a + 1
+
+print(a, y)
