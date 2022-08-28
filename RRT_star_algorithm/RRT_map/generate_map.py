@@ -9,10 +9,9 @@ sys.path.insert(0, 'D:/Navigation_algorithm/RRT_star_algorithm/RRT_libraries') #
 import env
 
 class GenerateMap:
-    def __init__(self, x_start, x_goal, order):
-        self.xI, self.xG = x_start, x_goal
+    def __init__(self, order):
         self.order = order
-        self.imagePath = "D:/Navigation_algorithm/RRT_star_algorithm/RRT_map/world{}_{}_{}_{}_{}.png".format(self.order,self.xI[0], self.xI[1], self.xG[0], self.xI[1])
+        self.imagePath = "D:/Navigation_algorithm/RRT_star_algorithm/RRT_map/world{}.png".format(self.order)
         self.env = env.Env()
         self.obs_bound = self.env.obs_boundary
         self.obs_circle = self.env.obs_circle
@@ -47,23 +46,22 @@ class GenerateMap:
                 fill = True
                )
             )
-        plt.plot(self.xI[0], self.xI[1], 'bs', linewidth=3)
-        plt.plot(self.xG[0], self.xG[1], 'gs', linewidth=3)
+        plt.plot()
         ax.set_axis_off()
         fig.add_axes(ax)
         plt.savefig(self.imagePath, dpi = 100)
         fig.show()
     def updateWorld(self, order_new = 1):
         self.order = order_new
-        self.imagePath = "D:/Navigation_algorithm/RRT_star_algorithm/RRT_map/world{}_{}_{}_{}_{}.png".format(self.order,self.xI[0], self.xI[1], self.xG[0], self.xI[1])
+        self.imagePath = "D:/Navigation_algorithm/RRT_star_algorithm/RRT_map/world{}.png".format(self.order)
         for i in range(len(self.obs_circle)):
-            radiusCircle = randint(1, 5)
+            radiusCircle = randint(2, 5)
             x_radius = randint(radiusCircle + 2 , self.env.x_range[1] - radiusCircle - 2)
             y_radius = randint(radiusCircle + 2 , self.env.y_range[1] - radiusCircle - 2)
             self.obs_circle[i] = [x_radius, y_radius, radiusCircle]
         for i in range(len(self.obs_rectangle)):
-            height = randint(1, 10)
-            width = randint(1, 10)
+            height = randint(3, 10)
+            width = randint(3, 10)
             x = randint(height + 2 , self.env.x_range[1] - height - 2)
             y = randint(width + 2 , self.env.y_range[1] - width - 2)
             self.obs_rectangle[i] = [x, y, height, width]
@@ -98,10 +96,8 @@ class GenerateMap:
         cv2.imwrite(self.imagePath, image)
 
 def main():
-    x_start = (8, 8)  # Starting node
-    x_goal = (40, 18)  # Goal node
-    map = GenerateMap(x_start, x_goal,1)
-    #map.updateWorld(order_new=1)
+    map = GenerateMap(1)
+    map.updateWorld(order_new=9)
     map.plot_grid()
     map.generateImage()
 
