@@ -1,0 +1,31 @@
+x_start = [100, 50] , x_goal = [400, 300], step_len = 10, goal_sample_rate = 0.1 , search_radius = 20
+
+Path 1:
+Cost of path 1:
+
+Path 2:
+Cost of path 2:
+
+Path 3:
+Cost of path 3:
+
+Path 4:
+Cost of path 4:
+
+Path 5:
+Cost of path 5:
+
+Path 6:
+Cost of path 6:
+
+Path 7:
+Cost of path 7:
+
+Path 8:
+Cost of path 8:
+
+Path 9:
+Cost of path 9:
+
+Path 10:
+Cost of path 10:
