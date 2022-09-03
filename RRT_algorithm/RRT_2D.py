@@ -118,12 +118,12 @@ def main():
     rrt = RRT(image, x_start, x_goal, step_len, goal_sample_rate, numOfNodes)
     rrt.planning()
     print(rrt.path)
-    cv2.circle(image, tuple(x_start), 5, (0, 0, 255), thickness= 2, lineType= 8)
-    cv2.circle(image, tuple(x_goal), 5, (255, 0, 0), thickness= 2, lineType= 8)
-    for i in range(len(rrt.vertices)):
-        cv2.circle(image, (int(rrt.vertices[i].x),int(rrt.vertices[i].y)), 1, (0, 120, 255), thickness = 2, lineType = 8)
+    cv2.circle(image, tuple(x_start), 5, (255, 0, 0), thickness= 2, lineType= 8)
+    cv2.circle(image, tuple(x_goal), 5, (0, 255, 0), thickness= 2, lineType= 8)
+    for i in range(1,  len(rrt.vertices)):
+        cv2.line(image, (int(rrt.vertices[i].x),int(rrt.vertices[i].y)), (int(rrt.vertices[i].parent.x),int(rrt.vertices[i].parent.y)), (0, 128, 128), thickness = 1, lineType = 8)
     for i in range(len(rrt.path)-1):
-       cv2.line(image, tuple(rrt.path[i]),tuple(rrt.path[i+1]), (0, 255, 0), thickness= 2, lineType=8)
+       cv2.line(image, tuple(rrt.path[i]),tuple(rrt.path[i+1]), (0, 0, 255), thickness= 2, lineType=8)
     cv2.imshow("Image", image)
     cv2.waitKey()
 if __name__ == '__main__':
